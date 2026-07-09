@@ -21,12 +21,14 @@ public class PlayerStatus : MonoBehaviour
     public AudioClip floaterSfx;
 
     public bool isInvulnerable;             // Indica si el jugador es inmune a los charcos de aceite.
+    public bool isSlowed;                   // Indica si el jugador esta bajo efecto de ralentizacion por aceite.
     private Coroutine floaterCoroutine;     // Referencia a la corrutina del flotador.
 
-    // Asegura que el estado de invulnerabilidad y el VFX del flotador esten apagados al iniciar.
+    // Asegura que los estados y el VFX del flotador esten apagados al iniciar.
     private void Awake()
     {
         isInvulnerable = false;
+        isSlowed = false;
         SetFloaterVfxActive(false);
     }
 
@@ -45,6 +47,7 @@ public class PlayerStatus : MonoBehaviour
     }
 
     // Activa la inmunidad del flotador, reiniciando la duracion si ya estaba activa.
+    // Tambien cancela cualquier ralentizacion activa para que la gota retroceda.
     public void ActivateFloater()
     {
         if (floaterCoroutine != null)
@@ -52,6 +55,7 @@ public class PlayerStatus : MonoBehaviour
             StopCoroutine(floaterCoroutine);
         }
 
+        GameManager.Instance?.RestoreGameSpeed();
         floaterCoroutine = StartCoroutine(FloaterRoutine());
     }
 
@@ -64,6 +68,7 @@ public class PlayerStatus : MonoBehaviour
         }
         floaterCoroutine = null;
         isInvulnerable = false;
+        isSlowed = false;
         SetFloaterVfxActive(false);
     }
 
