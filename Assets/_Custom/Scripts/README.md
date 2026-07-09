@@ -22,6 +22,7 @@ Este documento explica paso a paso como configurar y usar los scripts del proyec
 | `OilStain.cs` | Aplica ralentizacion al jugador al pisar un charco de aceite estatico. |
 | `Collectable.cs` | Gestiona objetos recogibles: bonus de puntos/tiempo o flotador. |
 | `TrackSpawner.cs` | Genera secciones de tobogan infinitas en el eje X positivo. |
+| `EnemyChaser.cs` | Gota gigante que avanza si el jugador esta ralentizado, retrocede si no, y causa Game Over al contacto. Durante los primeros segundos empuja al jugador. |
 
 ---
 
@@ -61,6 +62,7 @@ Este documento explica paso a paso como configurar y usar los scripts del proyec
     - `Floater Vfx`: arrastra el `GameObject` hijo del jugador que contiene el efecto del flotador.
     - `Floater Sfx`: arrastra el `AudioClip` que sonara al recoger el flotador.
     - `Is Invulnerable`: se marca automaticamente como `true` mientras dura el flotador. Indica que el jugador no puede ser afectado por charcos de aceite.
+    - `Is Slowed`: se marca automaticamente como `true` mientras el jugador este bajo efecto de ralentizacion por aceite.
 
 ### 3.4 GameManager (AudioSource)
 
@@ -145,7 +147,29 @@ Al tocarlo, aplica el efecto correspondiente y el objeto se destruye.
 
 ---
 
-## 7. Iniciar y terminar la partida
+## 7. Configurar enemigo perseguidor (EnemyChaser)
+
+1. Crea un GameObject para la gota gigante.
+2. Añade un `Collider`.
+3. Marca `Is Trigger`.
+4. Arrastra el script `EnemyChaser.cs`.
+5. Configura:
+   - `Base Chase Speed`: velocidad normal de persecucion (ej. `5`).
+   - `Stunned Chase Speed`: velocidad cuando el jugador esta stuneado/ralentizado (ej. `8`).
+   - `Max Chase Speed`: velocidad maxima cuando el jugador se aleja mucho (ej. `12`).
+   - `Catch Up Distance`: distancia a partir de la cual la gota acelera al maximo (ej. `15`).
+   - `Grace Period`: segundos iniciales donde la gota empuja al jugador en lugar de causar Game Over (ej. `3`).
+   - `Push Force`: fuerza del empujon hacia X positivo durante el periodo de gracia (ej. `10`).
+   - `Push Time Penalty`: tiempo restado al empujar (ej. `5`).
+   - `Push Cooldown`: segundos entre empujones (ej. `1`).
+   - `Player Status`: arrastra el componente `PlayerStatus` del jugador.
+   - `Player Tag`: `Player`.
+
+La gota persigue al jugador constantemente intentando tocarlo. Aumenta de velocidad si el jugador esta stuneado (`PlayerStatus.isSlowed`) o si se aleja mas de `Catch Up Distance`. Durante `Grace Period`, el contacto empuja al jugador hacia X positivo y le resta tiempo. Fuera de ese periodo, cualquier contacto causa `Game Over`.
+
+---
+
+## 8. Iniciar y terminar la partida
 
 ### Iniciar
 
@@ -179,7 +203,7 @@ Esto:
 
 ---
 
-## 8. Como mover escenarios y obstaculos
+## 9. Como mover escenarios y obstaculos
 
 Los objetos que se mueven hacia el jugador deben leer `GameManager.Instance.currentGameSpeed`.
 
@@ -197,7 +221,7 @@ Al llamar `EndGame()`, `currentGameSpeed` se vuelve `0` y todo se detiene.
 
 ---
 
-## 9. Notas importantes
+## 10. Notas importantes
 
 - No crees mas de un `GameManager` ni `UIManager` por escena; usan patron Singleton.
 - El temporizador sigue corriendo durante la ralentizacion por aceite.
@@ -211,5 +235,9 @@ Al llamar `EndGame()`, `currentGameSpeed` se vuelve `0` y todo se detiene.
 - `PlayerStatus.isInvulnerable` indica si el jugador es inmune a los charcos de aceite.
 - Mientras `isInvulnerable` sea `true`, los charcos de aceite no afectan al jugador.
 - El flotador activa `isInvulnerable` durante `Floater Duration` segundos.
+- `PlayerStatus.isSlowed` se activa al pisar aceite y se desactiva al recuperar la velocidad o usar el flotador.
+- El enemigo (`EnemyChaser`) persigue al jugador constantemente e intenta tocarlo.
+- `EnemyChaser` aumenta de velocidad si `PlayerStatus.isSlowed` es `true` o si el jugador supera `Catch Up Distance`.
+- Durante `EnemyChaser.Grace Period`, el contacto empuja al jugador y le resta tiempo en lugar de causar `Game Over`.
 - Todas las secciones del tobogan deben tener la misma longitud en X y coincidir con `TrackSpawner.Segment Length`.
 - `TrackSpawner` genera secciones en el eje X positivo y destruye las mas antiguas automaticamente.

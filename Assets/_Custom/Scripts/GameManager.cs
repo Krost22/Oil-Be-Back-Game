@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public float maxTime = 60f;                     // Tiempo inicial de la partida.
     public float remainingTime = 0f;                // Tiempo restante en segundos.
 
+    [Header("Game Start")]
+    public float gameStartTime;                     // Momento en el que inicio la partida.
+
     [Header("Oil VFX")]
     public ParticleSystem oilSlowdownVfx;           // VFX hijo del jugador. Se activa/desactiva segun el debuff.
 
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private Coroutine timerCoroutine;               // Referencia al contador.
     private Coroutine oilSlowdownCoroutine;         // Referencia a la corrutina de ralentizacion activa.
+    private PlayerStatus playerStatus;              // Referencia al estado del jugador.
 
     private void Awake()
     {
@@ -48,9 +52,12 @@ public class GameManager : MonoBehaviour
         score = 0;
         remainingTime = maxTime;
         currentGameSpeed = baseGameSpeed;
+        gameStartTime = Time.time;
         UpdateTimeText();
         SetOilVfxActive(false);
-        FindAnyObjectByType<PlayerStatus>()?.ResetStatus();
+
+        playerStatus = FindAnyObjectByType<PlayerStatus>();
+        playerStatus?.ResetStatus();
 
         if (timerCoroutine != null)
         {
@@ -80,8 +87,8 @@ public class GameManager : MonoBehaviour
         }
 
         SetOilVfxActive(false);
+        if (playerStatus != null) playerStatus.isSlowed = false;
 
-        UIManager.Instance?.ShowGameOver();
     }
 
     // Suma puntos a la puntuacion actual.
@@ -124,6 +131,7 @@ public class GameManager : MonoBehaviour
         }
 
         SetOilVfxActive(true);
+        if (playerStatus != null) playerStatus.isSlowed = true;
         oilSlowdownCoroutine = StartCoroutine(OilSlowdownRoutine(slowMultiplier, duration));
     }
 
@@ -133,6 +141,7 @@ public class GameManager : MonoBehaviour
         if (isGameOver) return;
 
         currentGameSpeed = baseGameSpeed;
+        if (playerStatus != null) playerStatus.isSlowed = false;
     }
 
     // Corrutina que aplica la ralentizacion y luego restaura la velocidad.
