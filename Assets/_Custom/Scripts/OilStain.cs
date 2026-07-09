@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OilDebuff : MonoBehaviour
+public class OilStain : MonoBehaviour
 {
     [Tooltip("Multiplicador de ralentizacion. 0.5f = mitad de velocidad.")]
     public float slowMultiplier = 0.5f;
@@ -11,9 +11,14 @@ public class OilDebuff : MonoBehaviour
     [Tooltip("Tag del jugador.")]
     public string playerTag = "Player";
 
+    // Aplica ralentizacion al jugador si no es invulnerable.
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(playerTag)) return;
-        GameManager.Instance?.ApplyOilSlowdown(slowMultiplier, duration);
+
+        PlayerStatus playerStatus = other.GetComponent<PlayerStatus>();
+        if (playerStatus == null) return;
+
+        playerStatus.HitByOil(slowMultiplier, duration);
     }
 }

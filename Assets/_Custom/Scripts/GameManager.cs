@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         currentGameSpeed = baseGameSpeed;
         UpdateTimeText();
         SetOilVfxActive(false);
+        FindAnyObjectByType<PlayerStatus>()?.ResetStatus();
 
         if (timerCoroutine != null)
         {
