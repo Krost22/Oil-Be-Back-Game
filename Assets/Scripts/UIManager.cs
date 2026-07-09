@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     public GameObject resumeButton;
     public GameObject restartButton;
     public GameObject scoreButton;
+    public GameObject exitButton;
 
     [Header("Elementos de Game Over")]
     public GameObject gameoverPanel;
@@ -85,6 +86,7 @@ public class UIManager : MonoBehaviour
         pausePanel.SetActive(true);
         resumeButton.SetActive(true);
         restartButton.SetActive(true);
+        exitButton.SetActive(true);
     }
 
     public void ResumeGame()
