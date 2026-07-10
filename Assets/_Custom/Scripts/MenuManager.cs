@@ -21,7 +21,7 @@ public class MenuManager : MonoBehaviour
     public void PlayGame()
     {
         Time.timeScale = 1f; 
-        SceneManager.LoadScene(gameSceneName);
+        SceneManager.LoadScene("1_Game");
     }
 
     public void OpenHowToPlay()
