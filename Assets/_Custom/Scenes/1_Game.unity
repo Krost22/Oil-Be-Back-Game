@@ -654,6 +654,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de3818a5cd2b63b4eab3c2aee83f26ab, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: de3818a5cd2b63b4eab3c2aee83f26ab, type: 3}
       propertyPath: m_Controller
       value: 
@@ -847,7 +851,7 @@ MonoBehaviour:
   - {fileID: 5349914491154465817, guid: 764f94f5c693f7a49ac31517ba9f4a3a, type: 3}
   - {fileID: 4642926090036489076, guid: 66d050dd562f7b74591005cd47e32d78, type: 3}
   spawnInterval: 2
-  spawnRange: 60
+  spawnRange: 50
   destroyDistance: 0
 --- !u!1001 &1153110205
 PrefabInstance:
