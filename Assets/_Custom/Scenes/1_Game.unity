@@ -199,7 +199,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects:
     - {fileID: 4739228020234215873, guid: 5c8e371fd68f72442a43116a2892d7be, type: 3}
     - {fileID: 8314105648550771090, guid: 5c8e371fd68f72442a43116a2892d7be, type: 3}
@@ -700,6 +701,56 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7387706064836869012, guid: 112dc834942f68041ba1c05517989bda, type: 3}
+--- !u!1 &1097742127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1097742129}
+  - component: {fileID: 1097742128}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1097742128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097742127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32810177048cbe24ca7c5c4e22f23883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrackSpawner
+  trackPrefabs:
+  - {fileID: 1606967198693226588, guid: cf935068a181e5b4992c7f9b87bcf27d, type: 3}
+  segmentLength: 20
+  maxActiveSegments: 5
+  initialSegments: 3
+  playerTransform: {fileID: 2039228029}
+--- !u!4 &1097742129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097742127}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -29.99265, y: 3.27059, z: -7.45674}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1153110205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1178,7 +1229,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &1723414337
 PrefabInstance:
@@ -1666,3 +1717,4 @@ SceneRoots:
   - {fileID: 1356424272}
   - {fileID: 1703330482}
   - {fileID: 1250622481}
+  - {fileID: 1097742129}

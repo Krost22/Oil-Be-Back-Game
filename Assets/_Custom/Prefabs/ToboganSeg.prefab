@@ -435,9 +435,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5088345608039739340}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6867357037365183940}
   m_SourcePrefab: {fileID: 100100000, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}
 --- !u!1 &3722542076350959527 stripped
 GameObject:
@@ -470,24 +467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RepeatBackground
   repeatWidth: -60.4
---- !u!114 &6867357037365183940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3722542076350959527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32810177048cbe24ca7c5c4e22f23883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrackSpawner
-  trackPrefabs:
-  - {fileID: 3722542076350959527}
-  segmentLength: 20
-  maxActiveSegments: 3
-  initialSegments: 3
-  playerTransform: {fileID: 0}
 --- !u!4 &4099103486609216797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}

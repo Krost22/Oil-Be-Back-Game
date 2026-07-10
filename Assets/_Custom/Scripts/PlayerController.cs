@@ -1,0 +1,84 @@
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    [Header("Configuración de Movimiento")]
+    public float velocidadCaminar = 4f;
+    public float velocidadCorrer = 7f;
+    public float velocidadRotacion = 10f;
+
+    [Header("Configuración de Salto")]
+    public float fuerzaSalto = 4f;
+    public LayerMask capaSuelo;
+
+    private Rigidbody rb;
+    private Animator anim;
+    private bool esSuelo;
+    private bool vivo = true;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (!vivo) return;
+
+        esSuelo = Physics.Raycast(transform.position, Vector3.down, 1.0f, capaSuelo);
+        anim.SetBool("isGrounded", esSuelo);
+
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector3 direccion = new Vector3(horizontal, 0f, vertical).normalized;
+
+        bool estaCorriendo = Input.GetKey(KeyCode.LeftShift) && direccion.magnitude > 0;
+        float velocidadActual = estaCorriendo ? velocidadCorrer : velocidadCaminar;
+
+        if (direccion.magnitude > 0)
+        {
+            Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, velocidadRotacion * Time.deltaTime);
+            Vector3 movimiento = direccion * velocidadActual * Time.deltaTime;
+            rb.MovePosition(transform.position + movimiento);
+        }
+
+        float velocidadParaAnim = direccion.magnitude * velocidadActual;
+        anim.SetFloat("Speed", velocidadParaAnim);
+
+        if (esSuelo && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
+            anim.SetTrigger("Jump");
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EjecutarMuerte();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            EjecutarMuerte();
+        }
+    }
+
+    private void EjecutarMuerte()
+{
+    if (!vivo) return; 
+
+    vivo = false;
+    anim.SetTrigger("Die"); 
+    rb.linearVelocity = Vector3.zero; 
+    rb.angularVelocity = Vector3.zero;
+    rb.isKinematic = true; 
+    this.enabled = false; 
+}
+}
