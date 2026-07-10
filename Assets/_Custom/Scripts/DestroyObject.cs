@@ -11,7 +11,9 @@ public class DestroyObject : MonoBehaviour
     }
     void Update()
     {
-        if (transform.position.x < player.position.x - destroyDistance)
+        Debug.Log("Player position: " + player.position.z);
+        Debug.Log("Object position: " + transform.position.z);
+        if (transform.position.z < player.position.z - destroyDistance)
         {
             Destroy(gameObject);
         }

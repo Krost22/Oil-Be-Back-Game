@@ -132,12 +132,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7318983190592586816}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d3aaffb709df8142b0ce5f71764fed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyObject
-  destroyDistance: 20
+  destroyDistance: 500
 --- !u!135 &950891011405764655
 SphereCollider:
   m_ObjectHideFlags: 0
