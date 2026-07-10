@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     private Coroutine oilSlowdownCoroutine;         // Referencia a la corrutina de ralentizacion activa.
     private PlayerStatus playerStatus;              // Referencia al estado del jugador.
 
+    public GameObject gameOverMenu;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -69,10 +71,12 @@ public class GameManager : MonoBehaviour
     // Detiene el juego, la velocidad pasa a 0 y muestra la pantalla de derrota.
     public void EndGame()
     {
-        if (isGameOver) return;
+        if (isGameOver) return; 
+
 
         isGameOver = true;
         currentGameSpeed = 0f;
+        gameOverMenu.SetActive(true);
 
         if (oilSlowdownCoroutine != null)
         {
@@ -138,10 +142,15 @@ public class GameManager : MonoBehaviour
     // Restaura currentGameSpeed a baseGameSpeed.
     public void RestoreGameSpeed()
     {
-        if (isGameOver) return;
+        if (isGameOver)
+        {
+            
+            return;
+        }
 
         currentGameSpeed = baseGameSpeed;
         if (playerStatus != null) playerStatus.isSlowed = false;
+
     }
 
     // Corrutina que aplica la ralentizacion y luego restaura la velocidad.

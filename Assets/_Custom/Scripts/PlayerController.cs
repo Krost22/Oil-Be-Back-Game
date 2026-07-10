@@ -12,13 +12,18 @@ public class PlayerController : MonoBehaviour
     public float fuerzaSalto = 4f;
     public LayerMask capaSuelo;
 
+    [Header("Límites del Mapa")]
+    public float limiteMinimoZ = -34f;
+
     private Rigidbody rb;
     private Animator anim;
     private bool esSuelo;
     private bool vivo = true;
+    GameManager gameManager;
 
     void Start()
     {
+        gameManager = GameObject.FindAnyObjectByType<GameManager>();
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
     }
@@ -50,8 +55,14 @@ public class PlayerController : MonoBehaviour
         {
             Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, velocidadRotacion * Time.deltaTime);
+
             Vector3 movimiento = direccion * velocidadActual * Time.deltaTime;
-            rb.MovePosition(transform.position + movimiento);
+            Vector3 nuevaPosicion = transform.position + movimiento;
+
+            // Restringe el movimiento para que Z no sea menor a limiteMinimoZ
+            nuevaPosicion.z = Mathf.Max(nuevaPosicion.z, limiteMinimoZ);
+
+            rb.MovePosition(nuevaPosicion);
         }
 
         float velocidadParaAnim = direccion.magnitude * velocidadActual;
@@ -69,6 +80,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             EjecutarMuerte();
+            gameManager.EndGame();
+
         }
     }
 

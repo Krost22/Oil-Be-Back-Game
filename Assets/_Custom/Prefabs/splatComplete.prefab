@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: splatComplete
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f768ee6910b13434789f7fc53a81ed4c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6829333093618665122, guid: f768ee6910b13434789f7fc53a81ed4c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -72,6 +76,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f768ee6910b13434789f7fc53a81ed4c, type: 3}
       insertIndex: -1
       addedObject: {fileID: -1428866605669355894}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f768ee6910b13434789f7fc53a81ed4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4099417951399732250}
   m_SourcePrefab: {fileID: 100100000, guid: f768ee6910b13434789f7fc53a81ed4c, type: 3}
 --- !u!1 &4642926090036489076 stripped
 GameObject:
@@ -160,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3aaffb709df8142b0ce5f71764fed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyObject
-  destroyDistance: 500
+  destroyDistance: 90
 --- !u!114 &-1428866605669355894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,4 +180,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6794a240dcaf942b068a94b7a494b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBack
-  speed: 15
+  speed: 10
+--- !u!114 &4099417951399732250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4642926090036489076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d34cdbd2e18c4264689e9977e0c6eb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OilStain
+  slowMultiplier: 0.5
+  duration: 3
+  playerTag: Player

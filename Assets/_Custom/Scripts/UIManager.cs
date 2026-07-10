@@ -49,12 +49,6 @@ public class UIManager : MonoBehaviour
         if (gameoverPanel != null) gameoverPanel.SetActive(false);
 
         UpdateScoreUI();
-
-        if (splashScreenPanel != null && splashScreenCanvasGroup != null)
-        {
-            TriggerSplashScreen();
-            StartCoroutine(FadeOutSplashScreen());
-        }
     }
 
     void Update()
@@ -102,7 +96,8 @@ public class UIManager : MonoBehaviour
 
     public void TriggerSplashScreen()
     {
-        isSplashScreenActive = true;
+
+        isSplashScreenActive = false;
         splashScreenPanel.SetActive(true);
         if (splashScreenCanvasGroup != null) splashScreenCanvasGroup.alpha = 1f;
     }

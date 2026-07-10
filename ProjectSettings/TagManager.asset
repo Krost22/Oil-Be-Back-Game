@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ToboganSeg
   - Duck
+  - Enemy
   layers:
   - Default
   - TransparentFX

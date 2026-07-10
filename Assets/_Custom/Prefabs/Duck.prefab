@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.396
+      value: 980
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.91
+      value: 0.00002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.1278
+      value: 6198.0625
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}
       propertyPath: m_LocalRotation.w
@@ -106,6 +106,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}
       insertIndex: -1
       addedObject: {fileID: 950891011405764655}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6385227920614633426}
   m_SourcePrefab: {fileID: 100100000, guid: ab01653424e4d6b49a7d53bc5647f623, type: 3}
 --- !u!1 &7318983190592586816 stripped
 GameObject:
@@ -137,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3aaffb709df8142b0ce5f71764fed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyObject
-  destroyDistance: 500
+  destroyDistance: 90
 --- !u!135 &950891011405764655
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -159,3 +162,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.4011343
   m_Center: {x: -0.1393547, y: 0, z: 0.0035574436}
+--- !u!114 &6385227920614633426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7318983190592586816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80b9d1950b543a4ca165f3846b227b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collectable
+  collectableType: 0
+  points: 10
+  playerTag: Player
+  collectibleVfx: {fileID: 2649134482686606474, guid: edc323bc29f08c645805b8dafc3a1810, type: 3}
+  collectibleSfx: {fileID: 0}

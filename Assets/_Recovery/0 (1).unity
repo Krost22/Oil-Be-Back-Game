@@ -1220,7 +1220,6 @@ GameObject:
   - component: {fileID: 1097742129}
   - component: {fileID: 1097742128}
   - component: {fileID: 1097742130}
-  - component: {fileID: 1097742131}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -1278,26 +1277,6 @@ MonoBehaviour:
   spawnInterval: 2
   spawnRange: 50
   destroyDistance: 0
---- !u!114 &1097742131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097742127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb90130379cd3e54798b9ced06c7af3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DecoSpawner
-  spawnableDeco:
-  - {fileID: 1504621197240734, guid: 9798d82304cdb4e96946973753b42e77, type: 3}
-  spawnInterval: 2
-  destroyDistance: 20
-  leftLimit: -24
-  rightLimit: -10
-  spawnPosFrontLeft: -20
-  spawnPosFrontRight: -40
 --- !u!1001 &1153110205
 PrefabInstance:
   m_ObjectHideFlags: 0
