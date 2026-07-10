@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,14 +27,23 @@ public class PlayerController : MonoBehaviour
     {
         if (!vivo) return;
 
+        var teclado = Keyboard.current;
+        if (teclado == null) return; // no hay teclado conectado
+
         esSuelo = Physics.Raycast(transform.position, Vector3.down, 1.0f, capaSuelo);
         anim.SetBool("isGrounded", esSuelo);
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = 0f;
+        float vertical = 0f;
+
+        if (teclado.aKey.isPressed || teclado.leftArrowKey.isPressed) horizontal -= 1f;
+        if (teclado.dKey.isPressed || teclado.rightArrowKey.isPressed) horizontal += 1f;
+        if (teclado.sKey.isPressed || teclado.downArrowKey.isPressed) vertical -= 1f;
+        if (teclado.wKey.isPressed || teclado.upArrowKey.isPressed) vertical += 1f;
+
         Vector3 direccion = new Vector3(horizontal, 0f, vertical).normalized;
 
-        bool estaCorriendo = Input.GetKey(KeyCode.LeftShift) && direccion.magnitude > 0;
+        bool estaCorriendo = teclado.leftShiftKey.isPressed && direccion.magnitude > 0;
         float velocidadActual = estaCorriendo ? velocidadCorrer : velocidadCaminar;
 
         if (direccion.magnitude > 0)
@@ -47,7 +57,7 @@ public class PlayerController : MonoBehaviour
         float velocidadParaAnim = direccion.magnitude * velocidadActual;
         anim.SetFloat("Speed", velocidadParaAnim);
 
-        if (esSuelo && Input.GetKeyDown(KeyCode.Space))
+        if (esSuelo && teclado.spaceKey.wasPressedThisFrame)
         {
             rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
             anim.SetTrigger("Jump");
@@ -71,14 +81,14 @@ public class PlayerController : MonoBehaviour
     }
 
     private void EjecutarMuerte()
-{
-    if (!vivo) return; 
+    {
+        if (!vivo) return;
 
-    vivo = false;
-    anim.SetTrigger("Die"); 
-    rb.linearVelocity = Vector3.zero; 
-    rb.angularVelocity = Vector3.zero;
-    rb.isKinematic = true; 
-    this.enabled = false; 
-}
+        vivo = false;
+        anim.SetTrigger("Die");
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
+        this.enabled = false;
+    }
 }

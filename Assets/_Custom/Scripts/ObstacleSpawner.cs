@@ -13,6 +13,7 @@ public class ObstacleSpawner : MonoBehaviour
     private float difficultyTimer;
     void Start()
     {
+        Debug.Log("Starting ObstacleSpawner");
         player = GameObject.FindGameObjectWithTag("Player").transform;
         InvokeRepeating(nameof(SpawnObject), 2f, spawnInterval);
     }
@@ -20,6 +21,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Player position: " + player.position);
         // Aumenta la dificultad disminuyendo el intervalo entre cada spawn
         difficultyTimer += Time.deltaTime;
         if (difficultyTimer >= 15f)
@@ -36,9 +38,10 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnObject()
     {
-        float spawnPosFront = player.position.x + 20f;
+        float spawnPosFront = player.position.x + 5f;
         Vector3 spawnPosition = new Vector3(spawnPosFront, 0, Random.Range(-spawnRange, spawnRange));
         int obstacleIndex = Random.Range(0, spawnablePrefabs.Length);
+        Debug.Log("Spawning obstacle: " + spawnablePrefabs[obstacleIndex].name + " at position: " + spawnPosition);
         Instantiate(spawnablePrefabs[obstacleIndex], spawnPosition, spawnablePrefabs[obstacleIndex].transform.rotation);
     }
 
