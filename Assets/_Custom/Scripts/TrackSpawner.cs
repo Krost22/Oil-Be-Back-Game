@@ -9,7 +9,7 @@ public class TrackSpawner : MonoBehaviour
 
     [Header("Spawn")]
     [Tooltip("Longitud de cada seccion en el eje X.")]
-    public float segmentLength = 20f;
+    private float segmentLength;
 
     [Tooltip("Numero de secciones que se mantienen activas a la vez.")]
     public int maxActiveSegments = 5;
@@ -76,6 +76,16 @@ public class TrackSpawner : MonoBehaviour
         GameObject prefab = trackPrefabs[randomIndex];
         GameObject segment = Instantiate(prefab, nextSpawnPosition, Quaternion.identity);
         activeSegments.Enqueue(segment);
+        // Se mide el tobogán con el mesh collider
+        Renderer meshRenderer = segment.GetComponentInChildren<Renderer>();
+        if (meshRenderer != null)
+        {
+            segmentLength = meshRenderer.bounds.size.x;
+        }
+        else
+        {
+            segmentLength = 10f;
+        }
         nextSpawnPosition += new Vector3(segmentLength, 0f, 0f);
     }
 
