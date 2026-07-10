@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [Header("Configuración de Escenas")]
-    [SerializeField] private string gameSceneName = "HudScene";
+    [SerializeField] private string gameSceneName = "1_Game";
 
     [Header("Panel Primario")]
     [SerializeField] private GameObject mainMenuPanel;
@@ -21,7 +21,7 @@ public class MenuManager : MonoBehaviour
     public void PlayGame()
     {
         Time.timeScale = 1f; 
-        SceneManager.LoadScene(gameSceneName);
+        SceneManager.LoadScene("1_Game");
     }
 
     public void OpenHowToPlay()
