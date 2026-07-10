@@ -69,6 +69,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 435d492ec06502e4d83edcd5ea9900cb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4925648800750675294}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 435d492ec06502e4d83edcd5ea9900cb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5124653479099002229}
   m_SourcePrefab: {fileID: 100100000, guid: 435d492ec06502e4d83edcd5ea9900cb, type: 3}
 --- !u!1 &5349914491154465817 stripped
 GameObject:
@@ -157,3 +160,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3aaffb709df8142b0ce5f71764fed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyObject
+  destroyDistance: 20
+--- !u!114 &-5124653479099002229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5349914491154465817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6794a240dcaf942b068a94b7a494b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveBack
+  speed: 15

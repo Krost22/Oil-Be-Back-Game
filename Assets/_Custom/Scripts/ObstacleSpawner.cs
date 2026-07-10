@@ -38,8 +38,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnObject()
     {
-        float spawnPosFront = player.position.x + 5f;
-        Vector3 spawnPosition = new Vector3(spawnPosFront, 0, Random.Range(-spawnRange, spawnRange));
+        float spawnPosFront = player.position.x + 0f;
+        Vector3 spawnPosition = new Vector3(Random.Range(-20, -12), -9, -46);
         int obstacleIndex = Random.Range(0, spawnablePrefabs.Length);
         Debug.Log("Spawning obstacle: " + spawnablePrefabs[obstacleIndex].name + " at position: " + spawnPosition);
         Instantiate(spawnablePrefabs[obstacleIndex], spawnPosition, spawnablePrefabs[obstacleIndex].transform.rotation);
