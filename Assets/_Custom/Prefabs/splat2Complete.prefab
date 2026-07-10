@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3aaffb709df8142b0ce5f71764fed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyObject
-  destroyDistance: 500
+  destroyDistance: 90
 --- !u!114 &-5124653479099002229
 MonoBehaviour:
   m_ObjectHideFlags: 0

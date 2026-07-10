@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5664609092599926979, guid: 21fea3497680a964a8a45d306ab25cac, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 83.4
+      value: -33.92
       objectReference: {fileID: 0}
     - target: {fileID: 5664609092599926979, guid: 21fea3497680a964a8a45d306ab25cac, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1627,6 +1627,7 @@ MonoBehaviour:
   capaSuelo:
     serializedVersion: 2
     m_Bits: 0
+  limiteMinimoZ: -34
 --- !u!114 &2039228032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,6 +1722,7 @@ MonoBehaviour:
   capaSuelo:
     serializedVersion: 2
     m_Bits: 0
+  limiteMinimoZ: -34
 --- !u!65 &2065745363
 BoxCollider:
   m_ObjectHideFlags: 0
