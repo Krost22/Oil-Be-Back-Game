@@ -147,7 +147,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 324256457103400460, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
       propertyPath: m_Name
-      value: timeText
+      value: scoreText
+      objectReference: {fileID: 0}
+    - target: {fileID: 637765911923206055, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1711762629033205844, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
       propertyPath: m_AnchorMax.x
@@ -164,6 +168,14 @@ PrefabInstance:
     - target: {fileID: 1711762629033205844, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711762629033205844, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711762629033205844, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 1711762629033205844, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -188,6 +200,14 @@ PrefabInstance:
     - target: {fileID: 2241247591827086455, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241247591827086455, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241247591827086455, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 2241247591827086455, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -201,6 +221,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3052400675212947914, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: gameoverScoreTextComponent
+      value: 
+      objectReference: {fileID: 6359815475423744935}
     - target: {fileID: 3954933799084239413, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -225,9 +249,29 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4086335187933749817, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4658920382470556453, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
       propertyPath: m_Name
       value: UI Manager Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480464223654867116, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: m_ScaleFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480464223654867116, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480464223654867116, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480464223654867116, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 6627444177542782503, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
       propertyPath: m_Pivot.x
@@ -346,3 +390,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6627444177542782503, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
   m_PrefabInstance: {fileID: 6422128392276919265}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6359815475423744935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 98342268195819590, guid: 9c34151e3ea097a43ad2faf4d7dff171, type: 3}
+  m_PrefabInstance: {fileID: 6422128392276919265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI

@@ -2178,29 +2178,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1130982224171515596, guid: bc4452e7fcdbade4cb08f38c640fe715, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1853289350362679492, guid: bc4452e7fcdbade4cb08f38c640fe715, type: 3}
       propertyPath: m_Name
       value: UI Manager Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 6728384683804696045, guid: bc4452e7fcdbade4cb08f38c640fe715, type: 3}
-      propertyPath: m_Name
-      value: scoreText
-      objectReference: {fileID: 0}
-    - target: {fileID: 7037560018268692952, guid: bc4452e7fcdbade4cb08f38c640fe715, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8305681711336206891, guid: bc4452e7fcdbade4cb08f38c640fe715, type: 3}
-      propertyPath: gameoverScoreTextComponent
-      value: 
-      objectReference: {fileID: 481528463}
-    - target: {fileID: 9104496791480684540, guid: bc4452e7fcdbade4cb08f38c640fe715, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
