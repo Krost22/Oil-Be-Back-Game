@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33335723152683268}
   - component: {fileID: 23700567446586240}
   - component: {fileID: -3121923244590166651}
+  - component: {fileID: 6202353944402647652}
   m_Layer: 0
   m_Name: palm_tree
   m_TagString: Untagged
@@ -105,3 +106,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBack
   speed: 30
+--- !u!114 &6202353944402647652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504621197240734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3aaffb709df8142b0ce5f71764fed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyObject
+  destroyDistance: 40

@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private Animator anim;
-    private bool esSuelo;
+    public bool esSuelo;
     private bool vivo = true;
     GameManager gameManager;
 

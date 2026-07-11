@@ -35,7 +35,7 @@ public class Collectable : MonoBehaviour
         else
         {
             GameManager.Instance?.AddScore(points);
-            GameManager.Instance?.AddTime(15f);
+            GameManager.Instance?.AddTime(10f);
 
             if (collectibleVfx != null)
             {

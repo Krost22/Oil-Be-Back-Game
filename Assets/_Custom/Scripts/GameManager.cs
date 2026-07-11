@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     private PlayerStatus playerStatus;              // Referencia al estado del jugador.
 
     public GameObject gameOverMenu;
+    public TextMeshProUGUI gameOverScoreText;
 
     private void Awake()
     {
@@ -78,6 +79,10 @@ public class GameManager : MonoBehaviour
         currentGameSpeed = 0f;
         gameOverMenu.SetActive(true);
 
+        if (gameOverScoreText != null)
+        {
+            gameOverScoreText.text = "Score: " + score;
+        }
         if (oilSlowdownCoroutine != null)
         {
             StopCoroutine(oilSlowdownCoroutine);
