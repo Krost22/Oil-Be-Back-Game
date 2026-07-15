@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: afa8a106bd40d4249af22fed81ffff12
+guid: 940a32fdf339a6349a07d4dc7ff52870
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Eye
-    second: {fileID: 2100000, guid: cc508ca922047db4884784010c178898, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Eyes
-    second: {fileID: 2100000, guid: ca62010670c85314fbdd12f36f0bdf3e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Oil
-    second: {fileID: 2100000, guid: eeed01f023b698a43925492a7a2bac6f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Teeth
-    second: {fileID: 2100000, guid: e399c81f2857df846b148460481f83fb, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -72,7 +52,7 @@ ModelImporter:
     weldVertices: 1
     bakeAxisConversion: 0
     preserveHierarchy: 0
-    skinWeightsMode: 1
+    skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
@@ -99,7 +79,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
@@ -120,7 +100,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
